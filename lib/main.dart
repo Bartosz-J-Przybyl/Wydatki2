@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wydatki2/expenses.dart';
+import 'package:wydatki2/widgets/expenses.dart';
 
 void main() {
   runApp(const MyApp());
