@@ -10,6 +10,17 @@ class NewExpense extends StatefulWidget {
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amauntController = TextEditingController();
+  final now = DateTime.now();
+  var firstDate = DateTime(
+      DateTime.now().year - 1, DateTime.now().month, DateTime.now().day);
+
+  void _presentDatePicker() {
+    showDatePicker(
+        context: context,
+        initialDate: now,
+        firstDate: firstDate,
+        lastDate: now);
+  }
 
   // var _enteredTitle = "";
 
@@ -36,13 +47,35 @@ class _NewExpenseState extends State<NewExpense> {
               label: Text("Title"),
             ),
           ),
-          TextField(
-            controller: _amauntController,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              prefixText: "\$ ",
-              label: Text("Amount"),
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: _amauntController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    prefixText: "\$ ",
+                    label: Text("Amount"),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 16,
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text("Selected Date"),
+                    IconButton(
+                      onPressed: _presentDatePicker,
+                      icon: const Icon(Icons.calendar_month),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
           Row(
             children: [
