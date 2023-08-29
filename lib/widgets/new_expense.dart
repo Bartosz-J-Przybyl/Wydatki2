@@ -55,11 +55,14 @@ class _NewExpenseState extends State<NewExpense> {
       );
       return;
     }
-    widget.onAddExpense(Expense(
-        category: _selectedCategory,
-        title: _titleController.text,
-        amount: enteredAmoount,
-        date: _selectedDate!));
+    widget.onAddExpense(
+      Expense(
+          category: _selectedCategory,
+          title: _titleController.text,
+          amount: enteredAmoount,
+          date: _selectedDate!),
+    );
+    Navigator.pop(context);
   }
 
   // var _enteredTitle = "";
