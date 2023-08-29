@@ -11,7 +11,7 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
-  final List<Expense> registerredExpense = [
+  final List<Expense> _registerredExpense = [
     Expense(
       category: Category.work,
       title: "title",
@@ -29,8 +29,14 @@ class _ExpensesState extends State<Expenses> {
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
       context: context,
-      builder: (ctx) => const NewExpense(),
+      builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
+  }
+
+  void _addExpense(Expense expense) {
+    setState(() {
+      _registerredExpense.add(expense);
+    });
   }
 
   @override
@@ -49,7 +55,7 @@ class _ExpensesState extends State<Expenses> {
         children: [
           const Text("1"),
           Expanded(
-            child: ExpensesList(expenses: registerredExpense),
+            child: ExpensesList(expenses: _registerredExpense),
           ),
         ],
       ),
