@@ -32,8 +32,28 @@ class _NewExpenseState extends State<NewExpense> {
 
   void _submitExpenseData() {
     final enteredAmoount = double.tryParse(_amauntController.text);
-    final amountIsInvalid = enteredAmoount == null ||enteredAmoount <= 0;
-    if (_titleController.text.trim().isEmpty || amountIsInvalid || _selectedDate == null) {}
+    final amountIsInvalid = enteredAmoount == null || enteredAmoount <= 0;
+    if (_titleController.text.trim().isEmpty ||
+        amountIsInvalid ||
+        _selectedDate == null) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Invalid nput"),
+          content: const Text(
+              "Please make sure that all field was corectly entered"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
   }
 
   // var _enteredTitle = "";
@@ -126,7 +146,9 @@ class _NewExpenseState extends State<NewExpense> {
                 child: const Text("cancel"),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _submitExpenseData();
+                },
                 child: const Text("save expense"),
               ),
             ],
