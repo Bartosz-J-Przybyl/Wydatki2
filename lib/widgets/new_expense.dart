@@ -30,6 +30,12 @@ class _NewExpenseState extends State<NewExpense> {
     });
   }
 
+  void _submitExpenseData() {
+    final enteredAmoount = double.tryParse(_amauntController.text);
+    final amountIsInvalid = enteredAmoount == null ||enteredAmoount <= 0;
+    if (_titleController.text.trim().isEmpty || amountIsInvalid || _selectedDate == null) {}
+  }
+
   // var _enteredTitle = "";
 
   // void _saveTitleInput(String inputValue) {
@@ -89,6 +95,7 @@ class _NewExpenseState extends State<NewExpense> {
               ),
             ],
           ),
+          const SizedBox(height: 16),
           Row(
             children: [
               DropdownButton(
@@ -111,6 +118,7 @@ class _NewExpenseState extends State<NewExpense> {
                       _selectedCategory = value;
                     });
                   }),
+              const Spacer(),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
