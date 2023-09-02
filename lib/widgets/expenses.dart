@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wydatki2/models/expense.dart';
+import 'package:wydatki2/widgets/chart/chart.dart';
 import 'package:wydatki2/widgets/expenses_list/expenses_list.dart';
 import 'package:wydatki2/widgets/new_expense.dart';
 
@@ -86,7 +87,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          const Text("1"),
+          Chart(expenses: _registerredExpense),
           Expanded(
             child: mainContent,
           ),
