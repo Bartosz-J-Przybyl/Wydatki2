@@ -114,6 +114,7 @@ class _NewExpenseState extends State<NewExpense> {
                       _selectedDate == null
                           ? "No Date Selected"
                           : formatter.format(_selectedDate!),
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                     IconButton(
                       onPressed: _presentDatePicker,
@@ -135,6 +136,7 @@ class _NewExpenseState extends State<NewExpense> {
                           value: category,
                           child: Text(
                             category.name.toUpperCase(),
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
                       )

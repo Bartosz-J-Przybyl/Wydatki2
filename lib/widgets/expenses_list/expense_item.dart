@@ -31,6 +31,7 @@ class ExpenseItem extends StatelessWidget {
               children: [
                 Text(
                   "\$ ${expense.amount.toStringAsFixed(2)}",
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const Spacer(),
                 Row(
@@ -41,6 +42,7 @@ class ExpenseItem extends StatelessWidget {
                     ),
                     Text(
                       expense.formattedDate,
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ],
                 )
