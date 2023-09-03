@@ -85,6 +85,7 @@ class _NewExpenseState extends State<NewExpense> {
         children: [
           TextField(
             controller: _titleController,
+            style: const TextStyle(color: Colors.white),
             maxLength: 50,
             decoration: const InputDecoration(
               label: Text("Title"),
@@ -96,6 +97,7 @@ class _NewExpenseState extends State<NewExpense> {
                 child: TextField(
                   controller: _amauntController,
                   keyboardType: TextInputType.number,
+                  style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
                     prefixText: "\$ ",
                     label: Text("Amount"),

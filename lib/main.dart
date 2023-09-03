@@ -18,31 +18,37 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
-        colorScheme: kColorSchemeDark,
-        appBarTheme: const AppBarTheme().copyWith(
-          backgroundColor: kColorSchemeDark.onPrimaryContainer,
-          foregroundColor: kColorSchemeDark.primaryContainer,
-        ),
-        cardTheme: const CardTheme().copyWith(
-          color: kColorSchemeDark.secondaryContainer,
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: kColorSchemeDark.primaryContainer,
-              foregroundColor: kColorSchemeDark.onPrimaryContainer),
-        ),
-        textTheme: ThemeData().textTheme.copyWith(
-              titleLarge: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 16),
-              titleSmall: const TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.white,
-                  fontSize: 14),
-            ),
-      ),
+          colorScheme: kColorSchemeDark,
+          appBarTheme: const AppBarTheme().copyWith(
+            backgroundColor: kColorSchemeDark.secondaryContainer,
+            foregroundColor: kColorSchemeDark.onSecondaryContainer,
+          ),
+          cardTheme: const CardTheme().copyWith(
+            color: kColorSchemeDark.secondaryContainer,
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: kColorSchemeDark.primaryContainer,
+                foregroundColor: kColorSchemeDark.onPrimaryContainer),
+          ),
+          textTheme: ThemeData().textTheme.copyWith(
+                titleLarge: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 16),
+                titleSmall: const TextStyle(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.white,
+                    fontSize: 14),
+              ),
+          inputDecorationTheme: const InputDecorationTheme(
+              labelStyle: TextStyle(),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  style: BorderStyle.solid,
+                ),
+              ))),
       theme: ThemeData().copyWith(
         scaffoldBackgroundColor: Colors.blueGrey,
         colorScheme: kColorScheme,
