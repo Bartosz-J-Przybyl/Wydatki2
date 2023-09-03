@@ -56,9 +56,14 @@ class _NewExpenseState extends State<NewExpense> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text("Invalid nput"),
-          content: const Text(
-              "Please make sure that all field was corectly entered"),
+          title: Text(
+            "Invalid nput",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          content: Text(
+            "Please make sure that all field was corectly entered",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           actions: [
             TextButton(
               onPressed: () {
