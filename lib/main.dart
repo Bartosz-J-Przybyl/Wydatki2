@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wydatki2/widgets/expenses.dart';
 
 var kColorScheme =
@@ -8,7 +9,11 @@ var kColorSchemeDark = ColorScheme.fromSeed(
     seedColor: const Color.fromARGB(255, 1, 26, 8));
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((fn) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
